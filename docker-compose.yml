@@ -7,10 +7,10 @@ services:
       args:
         UID: ${USER_ID}
         GID: ${GROUP_ID}
-        GROUP: docker
-        USERNAME: docker
+        GROUP: ${USER_NAME}
+        USERNAME: ${USER_NAME}
         PASSWORD: docker
-        HOME: /home/docker
+        HOME: /home/${USER_NAME}
         LISTEN_PORT: ${LISTEN_PORT}
     env_file: .env
     image: ${SERVICE_NAME}:${USER_NAME}

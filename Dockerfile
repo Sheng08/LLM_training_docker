@@ -40,7 +40,7 @@ WORKDIR /workspace
 RUN echo "Current working directory:" $(pwd)
 
 # Switch to the new user
-RUN chown -R docker:docker /workspace
+RUN chown -R ${USERNAME}:${USERNAME} /workspace
 # RUN mkdir -p /home/${USERNAME}/.cache/huggingface
 # RUN chown -R docker:docker /home/${USERNAME}/.cache/huggingface
 
