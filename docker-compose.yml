@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  llm_train_env:
+    container_name: ${SERVICE_NAME}
+    build:
+      context: .
+      args:
+        UID: ${USER_ID}
+        GID: ${GROUP_ID}
+        GROUP: docker
+        USERNAME: docker
+        PASSWORD: docker
+        HOME: /home/docker
+        LISTEN_PORT: ${LISTEN_PORT}
+    env_file: .env
+    image: ${SERVICE_NAME}:${USER_NAME}
+    ports:
+      - ${LISTEN_PORT}:${LISTEN_PORT}
+    volumes:
+      - ./:/workspace
+      - ~/.cache/huggingface:/home/docker/.cache/huggingface
+      # - ~/.cache/huggingface/hub:/home/docker/.cache/huggingface/hub
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['0,1,2']
+            capabilities: [gpu]
+    entrypoint: 
+      - jupyter
+      - notebook
+      - --allow-root
+      - --no-browser
+      - --ip=0.0.0.0
+      - --port=${LISTEN_PORT}
+    tty: true
+  
+

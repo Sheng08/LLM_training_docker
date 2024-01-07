@@ -1,0 +1,30 @@
+transformers==4.36.2
+accelerate==0.24.1
+bitsandbytes==0.41.3
+peft==0.4.0
+trl==0.4.7
+sentence_transformers
+wandb
+huggingface_hub
+datasets
+fsspec==2023.9.2
+notebook==6.4.12
+traitlets==5.9.0
+jupyter_contrib_nbextensions
+jupyter_nbextensions_configurator
+ipywidgets
+jupyterlab
+einops==0.6.1
+scipy==1.11.1
+pandas==2.0.3
+datasets==2.13.1
+tensorboard==2.13.0
+lmdeploy==0.0.14
+lmdeploy[serve]
+fastapi
+uvicorn
+shortuuid
+langchain
+deep_translator
+# faiss-gpu
+# faiss
